@@ -39,3 +39,45 @@
 @media(prefers-reduced-motion:reduce){.hero:before{animation:none}.js-reveal .reveal{opacity:1;transform:none;transition:none}}
 @media(max-width:760px){.section.combined{padding:72px 24px;grid-template-columns:1fr;gap:19px}.combined .method-block{margin-top:42px;padding-top:30px}.combined .method-heading{align-items:flex-start;flex-direction:column;gap:12px;margin-bottom:24px}.combined .steps{grid-template-columns:1fr}.combined .steps article{display:grid;grid-template-columns:32px 1fr;column-gap:8px;padding:17px 0;border-bottom:1px solid var(--rule)}.combined .steps article>span{grid-row:1 / span 2;padding-top:4px}.combined .steps h4{font-size:16px;margin:0 0 6px}.combined .steps p{grid-column:2;font-size:12px;max-width:none}.hero:before{inset:8% -20% 5% 5%}}
 
+/* Services sit in their own row so they read clearly after Anna's introduction. */
+.about{grid-template-rows:auto auto}
+.about-photo{grid-column:1;grid-row:1}
+.about-copy{grid-column:2;grid-row:1}
+.services-panel{grid-column:1/-1;grid-row:2;margin-top:4px;padding-top:26px;border-top:1px solid rgba(255,255,255,.22)}
+.about .services-label{display:inline-block;margin:0 0 16px;padding:11px 16px;background:#fff;color:#000;-webkit-text-fill-color:#000;border:1px solid #fff;border-radius:999px;font-size:11px;letter-spacing:.14em;font-weight:700}
+.services-tags{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.services-tags span{min-height:58px;justify-content:center;text-align:center;padding:12px 14px;font-size:14px}
+@media(max-width:760px){.about{grid-template-rows:auto auto auto}.about-photo{grid-column:1;grid-row:1}.about-copy{grid-column:1;grid-row:2}.services-panel{grid-column:1;grid-row:3;margin-top:1px;padding-top:22px}.about .services-label{font-size:10px;margin-bottom:13px}.services-tags{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.services-tags span{min-height:54px;padding:11px 9px;font-size:13px}.services-tags span:last-child:nth-child(odd){grid-column:1/-1}}
+
+/* Desk layout: balance the service label, method heading, and section sidebar. */
+.services-panel{text-align:center}
+.services-tags{justify-items:stretch}
+.section-sketch{display:block;width:clamp(112px,14vw,154px);height:auto;margin:42px auto 0;color:#111;opacity:.82}
+.combined .method-heading .eyebrow{order:2;margin-left:auto;text-align:right}
+.combined .method-heading h3{order:1;text-align:left}
+@media(max-width:760px){
+  .section-sketch{display:none}
+  .combined .method-heading .eyebrow{order:0;margin-left:0;text-align:left}
+  .combined .method-heading h3{order:0;text-align:left}
+}
+
+/* Five illustrated service columns, separated by fine architectural rules. */
+.services-tags{grid-template-columns:repeat(5,minmax(0,1fr));gap:0}
+.services-tags .service-item{min-width:0;padding:15px clamp(8px,1.5vw,20px) 5px;border:0;border-right:1px solid rgba(255,255,255,.48);border-radius:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;color:#fff}
+.services-tags .service-item:last-child{border-right:0}
+.services-tags .service-number{display:block;flex:0 0 auto;min-height:0;padding:0;border:0;border-radius:0;color:rgba(255,255,255,.58);font-size:10px;line-height:1.2;letter-spacing:.12em;font-weight:400}
+.services-tags .service-item h3{min-height:2.5em;margin:15px 0 10px;font-family:var(--sans);font-size:clamp(10px,1.05vw,13px);font-weight:500;line-height:1.35;letter-spacing:.055em;text-transform:uppercase}
+.services-tags .service-item svg{width:min(100%,130px);height:100px;overflow:visible;color:#fff}
+.section.combined{grid-template-columns:clamp(210px,24vw,340px) minmax(0,790px);gap:clamp(24px,3vw,44px)}
+.section-index{display:flex;align-items:center;justify-content:center;align-self:stretch;min-width:0}
+.floorplan-illustration{display:block;width:100%;height:auto;max-height:760px;object-fit:contain;object-position:center;background:#fff}
+@media(max-width:760px){
+  .services-tags{grid-template-columns:repeat(2,minmax(0,1fr));gap:0}
+  .services-tags .service-item{padding:14px 10px 16px;border-right:1px solid rgba(255,255,255,.42);border-bottom:1px solid rgba(255,255,255,.42)}
+  .services-tags .service-item:nth-child(2n){border-right:0}
+  .services-tags .service-item:nth-child(5){grid-column:1/-1;border-right:0;border-bottom:0}
+  .services-tags .service-item h3{min-height:0;margin:10px 0 8px;font-size:11px}
+  .services-tags .service-item svg{width:min(74%,150px);height:88px}
+  .section.combined{grid-template-columns:1fr;gap:19px}
+  .section-index{display:none}
+}
